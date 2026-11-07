@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Window state",
+    "description": "Remembers the desktop window's size, position, and display, and restores them on the next launch."
+  }
+}

@@ -1,0 +1,4 @@
+# 本地 bundle 的挂载声明：往配置树里插入本插件的插件行。
+- insert:
+    - id: dsh-window-state
+      name: 'dsh-window-state'

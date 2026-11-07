@@ -1,0 +1,36 @@
+{
+  "name": "dsh-window-state",
+  "version": "0.1.0",
+  "description": "记住 DeepSeek Harness 桌面窗口的大小、位置和所在显示器，下次启动自动恢复。",
+  "type": "module",
+  "license": "MIT",
+  "author": "liuye1296",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/liuye1296/dsh-window-state.git"
+  },
+  "keywords": ["dsh", "dsh-plugin", "deepseek-harness", "cordis", "window"],
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg"
+  },
+  "files": ["lib", "locale", "icon.svg", "cordis.patch.yml", "README.md", "LICENSE"],
+  "scripts": {
+    "build": "esbuild src/client/index.ts --bundle --format=iife --target=chrome120 --outfile=lib/client.js --log-level=warning && esbuild src/index.ts --bundle --format=esm --platform=node --outfile=lib/index.js --log-level=warning",
+    "typecheck": "tsc"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^5.9.0"
+  },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": {
+      "platform": "web",
+      "immediately": true,
+      "inject": []
+    }
+  }
+}
